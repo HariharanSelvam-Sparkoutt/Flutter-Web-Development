@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:web_app/Products/webProducts.dart';
+import 'package:web_app/aboutPage.dart';
+import 'package:web_app/homePage.dart';
+import 'package:web_app/productsPage.dart';
 
 class WebHomePage extends StatelessWidget {
   const WebHomePage({super.key});
@@ -30,11 +33,35 @@ class WebHomePage extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Text('Home'),
+                          TextButton(
+                            child: Text('Home'),
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Homepage()));
+                            },
+                          ),
                           SizedBox(width: 20),
-                          Text('Products'),
+                          TextButton(
+                            child: Text('Products'),
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Productspage()));
+                            },
+                          ),
                           SizedBox(width: 20),
-                          Text('About'),
+                          TextButton(
+                            child: Text('About'),
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Aboutpage()));
+                            },
+                          ),
                         ],
                       ),
                     ],
@@ -87,7 +114,7 @@ class WebHomePage extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => Webproducts()));
+                                builder: (context) => Productspage()));
                       },
                       child: Text(
                         'Click To View Products',

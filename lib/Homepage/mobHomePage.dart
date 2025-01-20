@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:web_app/Products/mobProducts.dart';
+import 'package:web_app/aboutPage.dart';
 import 'package:web_app/homePage.dart';
 import 'package:web_app/productsPage.dart';
 
@@ -40,7 +41,8 @@ class Mobhomepage extends StatelessWidget {
               leading: const Icon(Icons.info),
               title: const Text('About'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Aboutpage()));
               },
             ),
           ],
@@ -107,7 +109,12 @@ class Mobhomepage extends StatelessWidget {
                       child: Container(
                           color: Colors.black,
                           child: TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Productspage()));
+                              },
                               child: Text(
                                 'Click To View Products',
                                 style: TextStyle(color: Colors.white),

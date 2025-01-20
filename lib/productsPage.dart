@@ -20,5 +20,10 @@ class Productspage extends StatelessWidget {
         }
       },
     );
+    // return ScreenTypeLayout.builder(
+    //   desktop: (BuildContext context) => Webproducts(),
+    //   tablet: (BuildContext context) => Tabproducts(),
+    //   mobile: (BuildContext context) => Mobproducts(),
+    // );
   }
 }

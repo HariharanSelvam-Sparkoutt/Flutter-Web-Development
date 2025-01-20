@@ -54,7 +54,7 @@ class _TabproductsState extends State<Tabproducts> {
                   ),
                   SizedBox(width: 20),
                   TextButton(
-                    child: Text('Home'),
+                    child: Text('Products'),
                     onPressed: () {
                       Navigator.push(
                           context,
@@ -64,7 +64,7 @@ class _TabproductsState extends State<Tabproducts> {
                   ),
                   SizedBox(width: 20),
                   TextButton(
-                    child: Text('Home'),
+                    child: Text('About'),
                     onPressed: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) => Homepage()));
