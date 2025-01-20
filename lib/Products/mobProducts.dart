@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:web_app/aboutPage.dart';
 import 'package:web_app/fetchData.dart';
 import 'package:web_app/fetchModel.dart';
+import 'package:web_app/productsPage.dart';
 
 class Mobproducts extends StatefulWidget {
   const Mobproducts({super.key});
@@ -35,7 +37,8 @@ class _MobproductsState extends State<Mobproducts> {
               leading: const Icon(Icons.home),
               title: const Text('Home'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Productspage()));
               },
             ),
             ListTile(
@@ -43,14 +46,15 @@ class _MobproductsState extends State<Mobproducts> {
               title: const Text('Products'),
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Mobproducts()));
+                    MaterialPageRoute(builder: (context) => Productspage()));
               },
             ),
             ListTile(
               leading: const Icon(Icons.info),
               title: const Text('About'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Aboutpage()));
               },
             ),
           ],

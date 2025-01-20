@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:web_app/Products/tabProducts.dart';
+import 'package:web_app/aboutPage.dart';
 import 'package:web_app/homePage.dart';
 import 'package:web_app/productsPage.dart';
 
@@ -43,7 +44,7 @@ class Tabhomepage extends StatelessWidget {
                         ),
                         SizedBox(width: 20),
                         TextButton(
-                          child: Text('Home'),
+                          child: Text('Products'),
                           onPressed: () {
                             Navigator.push(
                                 context,
@@ -53,12 +54,12 @@ class Tabhomepage extends StatelessWidget {
                         ),
                         SizedBox(width: 20),
                         TextButton(
-                          child: Text('Home'),
+                          child: Text('About'),
                           onPressed: () {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Homepage()));
+                                    builder: (context) => Aboutpage()));
                           },
                         ),
                       ],
@@ -116,7 +117,7 @@ class Tabhomepage extends StatelessWidget {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => Tabproducts()));
+                                      builder: (context) => Productspage()));
                             },
                             child: Text(
                               'Click To View Products',

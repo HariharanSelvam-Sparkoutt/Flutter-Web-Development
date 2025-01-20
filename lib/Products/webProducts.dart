@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:web_app/aboutPage.dart';
 import 'package:web_app/fetchData.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 import 'package:web_app/fetchModel.dart';
+import 'package:web_app/homePage.dart';
+import 'package:web_app/productsPage.dart';
 
 class Webproducts extends StatefulWidget {
   const Webproducts({super.key});
@@ -43,11 +46,31 @@ class _WebproductsState extends State<Webproducts> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text('Home'),
+                  TextButton(
+                    child: Text('Home'),
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Homepage()));
+                    },
+                  ),
                   SizedBox(width: 20),
-                  Text('Products'),
+                  TextButton(
+                    child: Text('Products'),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Productspage()));
+                    },
+                  ),
                   SizedBox(width: 20),
-                  Text('About'),
+                  TextButton(
+                    child: Text('About'),
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Aboutpage()));
+                    },
+                  ),
                 ],
               ),
             ],
