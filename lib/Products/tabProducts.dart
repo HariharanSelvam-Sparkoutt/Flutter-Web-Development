@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:web_app/aboutPage.dart';
 import 'package:web_app/fetchData.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -67,7 +68,7 @@ class _TabproductsState extends State<Tabproducts> {
                     child: Text('About'),
                     onPressed: () {
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Homepage()));
+                          MaterialPageRoute(builder: (context) => Aboutpage()));
                     },
                   ),
                 ],
