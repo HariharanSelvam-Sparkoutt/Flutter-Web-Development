@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:web_app/aboutPage.dart';
 import 'package:web_app/fetchData.dart';
 import 'package:web_app/fetchModel.dart';
+import 'package:web_app/homePage.dart';
 import 'package:web_app/productsPage.dart';
 
 class Mobproducts extends StatefulWidget {
@@ -38,7 +39,7 @@ class _MobproductsState extends State<Mobproducts> {
               title: const Text('Home'),
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Productspage()));
+                    MaterialPageRoute(builder: (context) => Homepage()));
               },
             ),
             ListTile(
@@ -61,31 +62,49 @@ class _MobproductsState extends State<Mobproducts> {
         ),
       ),
       body: SafeArea(
-          child: FutureBuilder<List<Welcome>>(
-              future: products,
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return CircularProgressIndicator();
-                } else if (snapshot.hasError) {
-                  return Center(child: Text('Error: ${snapshot.error}'));
-                } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                  return Center(child: Text('No products available'));
-                } else {
-                  final productsFetched = snapshot.data;
-                  return ListView.builder(
-                    itemCount: productsFetched?.length,
-                    itemBuilder: (context, index) {
-                      final product = productsFetched?[index];
-                      return ListTile(
-                        title: Text(product!.title),
-                        subtitle: Text('\$${product.price}'),
-                        leading:
-                            Image.network(product.image, width: 50, height: 50),
-                      );
-                    },
-                  );
-                }
-              })),
+          child: Column(
+        children: [
+          Builder(builder: (context) {
+            return Row(
+              children: [
+                IconButton(
+                  onPressed: () {
+                    Scaffold.of(context).openDrawer();
+                  },
+                  icon: Icon(Icons.menu),
+                ),
+              ],
+            );
+          }),
+          Flexible(
+            child: FutureBuilder<List<Welcome>>(
+                future: products,
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return CircularProgressIndicator();
+                  } else if (snapshot.hasError) {
+                    return Center(child: Text('Error: ${snapshot.error}'));
+                  } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                    return Center(child: Text('No products available'));
+                  } else {
+                    final productsFetched = snapshot.data;
+                    return ListView.builder(
+                      itemCount: productsFetched?.length,
+                      itemBuilder: (context, index) {
+                        final product = productsFetched?[index];
+                        return ListTile(
+                          title: Text(product!.title),
+                          subtitle: Text('\$${product.price}'),
+                          leading: Image.network(product.image,
+                              width: 50, height: 50),
+                        );
+                      },
+                    );
+                  }
+                }),
+          ),
+        ],
+      )),
     );
   }
 }
